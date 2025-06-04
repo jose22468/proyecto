@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('fondo-naturaleza.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.contenedor {
+    background-color: rgba(0, 80, 0, 0.6);
+    min-height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #d0ffd0;
+    text-shadow: 1px 1px 2px #000;
+}
+
+header button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.calculadora,
+.articulo {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.calculadora h2,
+.articulo h2 {
+    color: #a8ffb0;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100px;
+}
+
+button {
+    background-color: #008000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.resultados p {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    color: #fff;
+}

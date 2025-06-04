@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="sistema.css">
+</head>
+
+<body>
+    <!-- Animaciones Naturales -->
+    <div class="mariposa" style="top: 10%; left: 5%;"></div>
+    <div class="mariposa" style="top: 20%; left: 70%; animation-delay: 2s;"></div>
+    <div class="mariposa" style="top: 40%; left: 30%; animation-delay: 4s;"></div>
+
+    <div class="hoja" style="top: 0; left: 10%; animation-delay: 0s;"></div>
+    <div class="hoja" style="top: 0; left: 50%; animation-delay: 3s;"></div>
+    <div class="hoja" style="top: 0; left: 80%; animation-delay: 6s;"></div>
+
+    <div class="overlay">
+        <header>
+            <h1>Plataforma Agrícola Inteligente</h1>
+            <div>
+                <button onclick="cerrarSesion()">Cerrar sesión</button>
+                <button onclick="irACalculadora()">Calculadora Lechuga</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="bienvenida">
+                <h2>Bienvenido al Futuro de la Agricultura</h2>
+                <p>
+                    Esta plataforma está diseñada para conectar la tecnología con la naturaleza. Explora herramientas modernas pensadas para apoyar a agricultores, innovadores y amantes del campo.
+                </p>
+            </section>
+
+            <section class="documento">
+                <h2>Proyecto: Sistema de Riego de Leonardo da Vinci</h2>
+                <p style="color: white; margin-top: 10px;">Para descargar el documento de nuestro trabajo haga click <a href="Plantilla articulo 2024-1 (2).docx" style="color: lightgreen; text-decoration: underline;">aquí</a>.</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function cerrarSesion() {
+            window.location.href = "ingresar.html";
+        }
+
+        function irACalculadora() {
+            window.location.href = "lechuga.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Lechuga</title>
+    <link rel="stylesheet" href="lechuga.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Calculadora de Cultivo de Lechuga Crespa</h1>
+            <button onclick="window.location.href='sistema.html'">Volver al sistema</button>
+        </header>
+
+        <section class="calculadora">
+            <h2>Calculadora</h2>
+            <label for="plantas">Cantidad de plantas:</label>
+            <input type="number" id="plantas" min="1" value="1">
+            <button onclick="calcular()">Calcular necesidades</button>
+
+            <div class="resultados" id="resultados"></div>
+        </section>
+
+        <section class="articulo">
+            <h2>Resumen del Proyecto</h2>
+            <p><strong>Título:</strong> Sistema de Riego de Leonardo da Vinci</p>
+            <p><strong>Autores:</strong> Dayana Carolina Ovalle Ninco, Diego Andres Osuna Baron, Jose miguel Bermudez, felipe Chaparro</p>
+            <p><strong>Resumen:</strong> El proyecto se basa en construir y probar un sistema de riego inspirado en los diseños de Da Vinci, usando el tornillo de Arquimedes. Se aplica al cultivo de lechuga crespa, evaluando su eficiencia hídrica y sostenibilidad.</p>
+            <p><strong>Condiciones ideales:</strong><br> - Riego: cada 2-3 días<br> - Temperatura: 10-22 °C<br> - Suelo: franco arenoso, pH 6.0 - 6.8<br> - Tiempo de cosecha: 40-55 días</p>
+            <p>El sistema recupera tecnologías hidráulicas antiguas con fines sostenibles, alineado al ODS 6.</p>
+        </section>
+    </div>
+
+    <script>
+        function calcular() {
+            const cantidad = parseInt(document.getElementById('plantas').value);
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert("Ingrese una cantidad válida de plantas.");
+                return;
+            }
+            const agua = cantidad * 0.5; // litros cada 2-3 días
+            const sol = cantidad * 6; // horas de luz solar por planta semanalmente
+
+            const resultado = `
+                <p><strong>Agua necesaria:</strong> ${agua.toFixed(2)} litros cada 2-3 días</p>
+                <p><strong>Luz solar semanal:</strong> ${sol} horas</p>
+                <p><strong>Recomendación:</strong> Evitar encharcamiento. Mantener humedad constante en el suelo.</p>
+            `;
+            document.getElementById('resultados').innerHTML = resultado;
+        }
+    </script>
+</body>
+
+</html>
