@@ -1,114 +1,195 @@
-body {More actionsAdd commentMore actions
- margin: 0;
+Add commentMore actions
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: whitesmoke;
+  color: #212121;
+  border: 1px solid #333;
+}
 
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #d30073;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #d30073;
+}
+
+.message,
+.signin {
+  font-size: 14.5px;
+  color: #333;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a:hover {
+  text-decoration: underline green;
+}
+
+.signin a {
+  color: #d30073;
+
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #d30073;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #d30073;
+  font-size: 16px;
+  transform: 0.3s ease;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid #d30073;
+}
+
+.submit:hover {
+  background-color: #d30073;
+  color: whitesmoke;
+
+
+}
+
+body {
+    margin: 0;
     padding: 0;
     height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('fondo naturaleza.jpg') no-repeat center center fixed;
+    background-image: url('Paisaje sereno con colinas verdes.png');
     background-size: cover;
-    overflow-y: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
 }
 
-@keyframes flotar {
-    0% {
-        transform: translateY(0);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translateY(-20px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 0.8;
-    }
-}
-
-@keyframes hoja {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    100% {
-        transform: translate(100vw, 100vh) rotate(360deg);
-    }
-}
-
-.mariposa {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: url('mariposa.png') no-repeat center center;
-    background-size: contain;
-    animation: flotar 5s ease-in-out infinite;
-    z-index: 1;
-}
-
-.hoja {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: url('hoja.png') no-repeat center center;
-    background-size: contain;
-    animation: hoja 5s linear infinite;
-    z-index: 0;
-}
-
-.overlay {
-    background: rgba(0, 100, 0, 0.4);
-    min-height: 100vh; /* CAMBIO de height a min-height */
-    width: 100%;
-    color: white;
-    padding: 40px;
-    box-sizing: border-box;
-    display: block; /* CAMBIO de flex a block */
-    position: relative;
-    z-index: 2;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1000px;
-    margin-bottom: 40px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    color: #e6ffe6;
-    text-shadow: 2px 2px 4px #004d00;
-}
-
-header button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.bienvenida {
-    background: rgba(255, 255, 255, 0.15);
+.form {
+    background: rgba(255, 255, 255, 0.8);
+    max-width: 400px;
+    margin: 100px auto;
     padding: 30px;
-    border-radius: 12px;
-    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
 
 }
 
-.bienvenida h2 {
-    font-size: 2em;
-    color: #d0ffd0;
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.bienvenida p {
-    font-size: 1.1em;
-    color: #ffffff;
-    line-height: 1.6em;
+.submit {
+
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #45a049;
+}
+
+.signin {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
 }
