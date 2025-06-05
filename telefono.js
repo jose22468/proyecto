@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Manejo del formulario de registro
-    const registrationForm = document.querySelector('.form');
+    const registrationForm = document.getElementById('registerForm');
+    
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -8,10 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
             
             // Validación básica
-            if (!name || !email || !password) {
+            if (!name || !email || !password || !confirmPassword) {
                 alert('Por favor completa todos los campos');
+                return;
+            }
+            
+            // Validar que las contraseñas coincidan
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
                 return;
             }
             
@@ -19,19 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const user = {
                 nombre: name,
                 correo: email,
-                contraseña: password, // En una aplicación real, NUNCA almacenes contraseñas en texto plano
+                contraseña: password, // En una aplicación real, esto debería estar encriptado
                 fechaRegistro: new Date().toISOString()
             };
             
-            // Guardar usuario en localStorage
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            // Guardar usuario en localStorage (reemplazando cualquier usuario existente)
+            localStorage.setItem('usuario', JSON.stringify(user));
             
-            // Guardar en lista de usuarios (para el sistema de login)
-            let users = JSON.parse(localStorage.getItem('users') || [];
+            // También lo guardamos en una lista de usuarios (por si necesitas múltiples usuarios después)
+            let users = JSON.parse(localStorage.getItem('users') || "[]");
             users.push(user);
             localStorage.setItem('users', JSON.stringify(users));
             
-            alert('Registro exitoso. Serás redirigido a la página de inicio.');
+            alert('Registro exitoso. Serás redirigido a la página de ingreso.');
             window.location.href = 'ingresar.html';
         });
     }
