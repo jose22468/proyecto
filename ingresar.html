@@ -1,27 +1,44 @@
-<!-- De la universidad catolica de colombia -->
-<form class="form">
-    <p class="title">Bienvenido de vuelta</p>
-    <script src="ingresar.js"></script>
-    <div class="flex">
-        <label>
-            <input class="input" type="text" placeholder="" required="">
-            <span>Nombre</span>
-        </label>
-        <link rel="stylesheet" href="ingresar.css"></link>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso - AgroSystem</title>
+    <link rel="stylesheet" href="ingresar.css">
+</head>
+<body>
+    <div class="natural-background">
+        <form class="form">
+            <p class="title">🌱 Bienvenido a AgroSystem</p>
+            <p class="subtitle">Conecta con la naturaleza</p>
+            
+            <div class="input-group">
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Nombre</span>
+                </label>
+            </div>
+
+            <label>
+                <input class="input" type="email" placeholder="" required="">
+                <span>Correo electrónico</span>
+            </label>
+
+            <label>
+                <input class="input" type="password" placeholder="" required="">
+                <span>Contraseña</span>
+            </label>
+
+            <button class="submit">Ingresar al sistema</button>
+            
+            <p class="signin">¿No tienes una cuenta? <a href="telefono.html">Regístrate aquí</a></p>
+            <div class="nature-icons">
+                <span>🌿</span>
+                <span>🍃</span>
+                <span>🌻</span>
+            </div>
+        </form>
     </div>
-    <label>
-        <input class="input" type="email" placeholder="" required="">
-        <span>Correo</span>
-    </label>
-
-
-
-    <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Contraseña</span>
-    </label>
-
-    <button class="submit">Ingresar</button> <a href="telefono.html">Registrarse</a>
-    <p class="signin">¿No tienes una cuenta? <a href="telefono.html">Registrarse</a>
-    </p>
-</form>
+    <script src="ingresar.js"></script>
+</body>
+</html>
