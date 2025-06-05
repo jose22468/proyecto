@@ -1,212 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@300;400&display=swap');
+body {More actionsAdd commentMore actions
+ margin: 0;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
     padding: 0;
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('fondo naturaleza.jpg') no-repeat center center fixed;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Quicksand', sans-serif;
-    position: relative;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
-body::before {
-    content: '';
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+}
+
+@keyframes hoja {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(100vw, 100vh) rotate(360deg);
+    }
+}
+
+.mariposa {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(46, 91, 62, 0.2);
+    width: 40px;
+    height: 40px;
+    background: url('mariposa.png') no-repeat center center;
+    background-size: contain;
+    animation: flotar 5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.hoja {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('hoja.png') no-repeat center center;
+    background-size: contain;
+    animation: hoja 5s linear infinite;
     z-index: 0;
 }
 
-.form-container {
+.overlay {
+    background: rgba(0, 100, 0, 0.4);
+    min-height: 100vh; /* CAMBIO de height a min-height */
     width: 100%;
-    max-width: 420px;
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    display: block; /* CAMBIO de flex a block */
     position: relative;
-    z-index: 1;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.form-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39);
+    max-width: 1000px;
+    margin-bottom: 40px;
 }
 
-.title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #2E5B3E;
-    margin-bottom: 1.8rem;
-    text-align: center;
-    position: relative;
-    font-family: 'Roboto Slab', serif;
+header h1 {
+    font-size: 2.5em;
+    color: #e6ffe6;
+    text-shadow: 2px 2px 4px #004d00;
 }
 
-.title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(to right, #4CAF50, #8BC34A);
-    margin: 0.8rem auto 0;
-    border-radius: 3px;
-}
-
-.form-group {
-    position: relative;
-    margin-bottom: 1.8rem;
-}
-
-.form-input {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3.2rem;
-    font-size: 0.95rem;
-    border: 1px solid #C8E6C9;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #2E5B3E;
-    transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: #4CAF50;
-    background-color: #fff;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.form-label {
-    position: absolute;
-    left: 3.2rem;
-    top: 1rem;
-    color: #81C784;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label {
-    top: -0.6rem;
-    left: 1rem;
-    font-size: 0.75rem;
-    background-color: #fff;
-    padding: 0 0.5rem;
-    color: #4CAF50;
-}
-
-.input-icon {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    color: #81C784;
-    font-size: 1.1rem;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to right, #4CAF50, #8BC34A);
+header button {
+    background-color: #ff4d4d;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-    background: linear-gradient(to right, #43A047, #7CB342);
-}
-
-.submit-btn:active {
-    transform: translateY(0);
-}
-
-.signin-text {
+.bienvenida {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 800px;
     text-align: center;
-    margin-top: 1.8rem;
-    color: #689F38;
-    font-size: 0.9rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
 }
 
-.signin-link {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
+.bienvenida h2 {
+    font-size: 2em;
+    color: #d0ffd0;
+    margin-bottom: 15px;
 }
 
-.signin-link:hover {
-    color: #2E7D32;
-    text-decoration: underline;
-}
-
-.leaf-decoration {
-    position: absolute;
-    opacity: 0.15;
-    z-index: -1;
-}
-
-.leaf-1 {
-    top: -30px;
-    right: -30px;
-    font-size: 120px;
-    color: #4CAF50;
-    transform: rotate(30deg);
-}
-
-.leaf-2 {
-    bottom: -40px;
-    left: -40px;
-    font-size: 150px;
-    color: #8BC34A;
-    transform: rotate(-20deg);
-}
-
-.nature-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.nature-element {
-    position: absolute;
-    opacity: 0.4;
-    color: #4CAF50;
+.bienvenida p {
+    font-size: 1.1em;
+    color: #ffffff;
+    line-height: 1.6em;
 }
