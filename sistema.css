@@ -48,7 +48,7 @@ body {
     height: 30px;
     background: url('hoja.png') no-repeat center center;
     background-size: contain;
-    animation: hoja 10s linear infinite;
+    animation: hoja 5s linear infinite;
     z-index: 0;
 }
 
