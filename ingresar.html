@@ -5,40 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso - AgroSystem</title>
     <link rel="stylesheet" href="ingresar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="natural-background">
+    <div class="agricultural-background">
+        <div class="nature-elements">
+            <i class="nature-element fas fa-leaf"></i>
+            <i class="nature-element fas fa-seedling"></i>
+            <i class="nature-element fas fa-wheat-alt"></i>
+        </div>
+        
         <form class="form">
-            <p class="title">🌱 Bienvenido otra vez</p>
-            <p class="subtitle">te estabamos esperando</p>
-            
+            <div class="form-header">
+                <i class="form-icon fas fa-tractor"></i>
+                <h1 class="title">Bienvenido a <span>AgroSystem</span></h1>
+                <p class="subtitle">Cultivando conexiones digitales</p>
+            </div>
+
             <div class="input-group">
                 <label>
-                    <input class="input" type="text" placeholder="" required="">
-                    <span>Nombre</span>
+                    <i class="input-icon fas fa-user"></i>
+                    <input class="input" type="text" placeholder="" required>
+                    <span>Nombre de usuario</span>
                 </label>
             </div>
 
-            <label>
-                <input class="input" type="email" placeholder="" required="">
-                <span>Correo electrónico</span>
-            </label>
+            <div class="input-group">
+                <label>
+                    <i class="input-icon fas fa-envelope"></i>
+                    <input class="input" type="email" placeholder="" required>
+                    <span>Correo electrónico</span>
+                </label>
+            </div>
 
-            <label>
-                <input class="input" type="password" placeholder="" required="">
-                <span>Contraseña</span>
-            </label>
+            <div class="input-group">
+                <label>
+                    <i class="input-icon fas fa-lock"></i>
+                    <input class="input" type="password" placeholder="" required>
+                    <span>Contraseña</span>
+                </label>
+            </div>
 
-            <button class="submit">Ingresar al sistema</button>
+            <button class="submit">
+                <i class="fas fa-sign-in-alt"></i> Ingresar al sistema
+            </button>
             
-            <p class="signin">¿No tienes una cuenta? <a href="telefono.html">Regístrate aquí</a></p>
-            <div class="nature-icons">
-                <span>🌿</span>
-                <span>🍃</span>
-                <span>🌻</span>
+            <div class="form-footer">
+                <p>¿No tienes cuenta? <a href="telefono.html">Regístrate aquí</a></p>
+                <div class="agricultural-icons">
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-apple-alt"></i>
+                    <i class="fas fa-carrot"></i>
+                </div>
             </div>
         </form>
     </div>
+
     <script src="ingresar.js"></script>
 </body>
 </html>
