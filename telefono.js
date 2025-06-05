@@ -26,18 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const user = {
                 nombre: name,
                 correo: email,
-                contraseña: password, // En una aplicación real, esto debería estar encriptado
+                contraseña: password,
                 fechaRegistro: new Date().toISOString()
             };
             
-            // Guardar usuario en localStorage (reemplazando cualquier usuario existente)
+            // Guardar usuario en localStorage
             localStorage.setItem('usuario', JSON.stringify(user));
             
-            // También lo guardamos en una lista de usuarios (por si necesitas múltiples usuarios después)
-            let users = JSON.parse(localStorage.getItem('users') || "[]");
-            users.push(user);
-            localStorage.setItem('users', JSON.stringify(users));
-            
+            // Mostrar mensaje y redirigir
             alert('Registro exitoso. Serás redirigido a la página de ingreso.');
             window.location.href = 'ingresar.html';
         });
