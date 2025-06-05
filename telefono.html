@@ -1,38 +1,50 @@
-<!-- De la universidad catolica de colombia -->
-<form class="form">
-    <p class="title">Le Damos La Bienvenida</p>
-    <div class="flex">
-        <label>
-            <input class="input" type="text" placeholder="" required="">
-            <span>Nombre</span>
-            <script src="telefono.js"></script>
-        </label>
-        <link rel="stylesheet" href="telefono.css"></link>
-        <label>
-            <input class="input" type="text" placeholder="" required="">
-            <span>Apellido</span>
-        </label>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Naturaleza</title>
+    <link rel="stylesheet" href="telefono.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="nature-elements">
+        <i class="nature-element fas fa-leaf" style="top: 10%; left: 5%; font-size: 40px; transform: rotate(-15deg);"></i>
+        <i class="nature-element fas fa-seedling" style="top: 70%; left: 80%; font-size: 50px; transform: rotate(25deg);"></i>
+        <i class="nature-element fas fa-spa" style="top: 20%; left: 85%; font-size: 60px; transform: rotate(40deg);"></i>
     </div>
-
-    <label>
-        <input class="input" type="email" placeholder="" required="">
-        <span>Correo</span>
-    </label>
-
-    <label>
-        <input class="input" type="email" placeholder="" required="">
-        <span>Confirmacion de correo</span>
-    </label>
-
-    <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Contraseña</span>
-    </label>
-    <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Confirmacion de Contraseña</span>
-    </label>
-    <button class="submit">Registrarse</button> <a href="ingresar.html">Ingresar</a>
-    <p class="signin">¿Ya tienes una cuenta? <a href="ingresar.html">Ingresar</a>
-    </p>
-</form>
+    
+    <div class="form-container">
+        <i class="leaf-decoration fas fa-leaf leaf-1"></i>
+        <i class="leaf-decoration fas fa-leaf leaf-2"></i>
+        
+        <h1 class="title">Conéctate con la Naturaleza</h1>
+        
+        <form class="form">
+            <div class="form-group">
+                <i class="input-icon fas fa-user"></i>
+                <input type="text" class="form-input" id="name" placeholder=" " required>
+                <label for="name" class="form-label">Nombre de usuario</label>
+            </div>
+            
+            <div class="form-group">
+                <i class="input-icon fas fa-envelope"></i>
+                <input type="email" class="form-input" id="email" placeholder=" " required>
+                <label for="email" class="form-label">Correo electrónico</label>
+            </div>
+            
+            <div class="form-group">
+                <i class="input-icon fas fa-lock"></i>
+                <input type="password" class="form-input" id="password" placeholder=" " required>
+                <label for="password" class="form-label">Contraseña</label>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-seedling" style="margin-right: 8px;"></i> Crear cuenta
+            </button>
+            
+            <p class="signin-text">¿Ya tienes una cuenta? <a href="telefono.html" class="signin-link">Inicia sesión</a></p>
+        </form>
+    </div>
+</body>
+</html>
