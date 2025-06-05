@@ -18,5 +18,4 @@ document.querySelector('.form').addEventListener('submit', function(e) {
     } else {
         alert("Correo o contraseña incorrectos.");
     }
-
 });
