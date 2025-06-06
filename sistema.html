@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
+    <title>Sistema de Riego - AgroSystem</title>
     <link rel="stylesheet" href="sistema.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Animaciones Naturales -->
-    <div class="mariposa" style="top: 10%; left: 5%;"></div>
-    <div class="mariposa" style="top: 20%; left: 70%; animation-delay: 2s;"></div>
-    <div class="mariposa" style="top: 40%; left: 30%; animation-delay: 4s;"></div>
+    <!-- Elementos naturales decorativos -->
+    <div class="nature-elements">
+        <i class="nature-element fas fa-leaf"></i>
+        <i class="nature-element fas fa-seedling"></i>
+        <i class="nature-element fas fa-tint"></i>
+        <i class="nature-element fas fa-cloud"></i>
+    </div>
 
-    <div class="hoja" style="top: 0; left: 10%; animation-delay: 0s;"></div>
-    <div class="hoja" style="top: 0; left: 50%; animation-delay: 3s;"></div>
-    <div class="hoja" style="top: 0; left: 80%; animation-delay: 6s;"></div>
-
-    <div class="overlay">
-        <header>
-            <h1>sistema de riego leonardo da vinci</h1>
-            <div>
-                <button onclick="cerrarSesion()">Cerrar sesión</button>
-                <button onclick="irACalculadora()">Calculadora Lechuga</button>
+    <div class="agricultural-container">
+        <header class="system-header">
+            <div class="header-content">
+                <h1><i class="fas fa-tint"></i> Sistema de Riego Leonardo da Vinci</h1>
+                <div class="header-buttons">
+                    <button class="btn-logout" onclick="cerrarSesion()">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </button>
+                    <button class="btn-calculator" onclick="irACalculadora()">
+                        <i class="fas fa-calculator"></i> Calculadora Lechuga
+                    </button>
+                </div>
             </div>
+            <div class="header-decoration"></div>
         </header>
 
-        <main>
+        <main class="system-main">
             <section class="documento">
-                <h2>SISTEMA DE RIEGO DE LEONARDO DA VINCI</h2>
-                <h3>Autores</h3>
-                <ul>
-                    <li>Dayana Carolina Ovalle Ninco</li>
-                    <li>Diego Andrés Osuna Barón</li>
-                    <li>Jose Miguel Bermúdez</li>
-                    <li>Felipe Chaparro</li>
+                <div class="document-header">
+                    <h2><i class="fas fa-water"></i> SISTEMA DE RIEGO DE LEONARDO DA VINCI</h2>
+                    <div class="decoration-line"></div>
+                </div>
+                
+                <h3><i class="fas fa-users"></i> Autores</h3>
+                <ul class="authors-list">
+                    <li><i class="fas fa-user-graduate"></i> Dayana Carolina Ovalle Ninco</li>
+                    <li><i class="fas fa-user-graduate"></i> Diego Andrés Osuna Barón</li>
+                    <li><i class="fas fa-user-graduate"></i> Jose Miguel Bermúdez</li>
+                    <li><i class="fas fa-user-graduate"></i> Felipe Chaparro</li>
                 </ul>
         
-                <h3>Resumen</h3>
+                <h3><i class="fas fa-file-alt"></i> Resumen</h3>
                 <p>El proyecto consiste en la construcción y prueba de un sistema de riego basado en los diseños de Leonardo da Vinci, utilizando principios hidráulicos como el tornillo de Arquímedes y sistemas de bombeo...</p>
         
-                <h3>Abstract</h3>
-                <p>The project consists of the construction and testing of an irrigation system based on Leonardo da Vinci’s designs, using hydraulic principles such as Archimedes’ screw and water wheels...</p>
+                <h3><i class="fas fa-language"></i> Abstract</h3>
+                <p>The project consists of the construction and testing of an irrigation system based on Leonardo da Vinci's designs, using hydraulic principles such as Archimedes' screw and water wheels...</p>
         
-                <h3>Conclusiones</h3>
-                <ul>
-                    <li>El sistema funciona pero requiere mejoras técnicas (motorización, sellado, inclinación)</li>
-                    <li>Es viable para cultivos pequeños en Bogotá si se optimiza</li>
-                    <li>Futuras líneas de trabajo: sensores, control automático, mejores materiales</li>
+                <h3><i class="fas fa-check-circle"></i> Conclusiones</h3>
+                <ul class="conclusions-list">
+                    <li><i class="fas fa-cogs"></i> El sistema funciona pero requiere mejoras técnicas (motorización, sellado, inclinación)</li>
+                    <li><i class="fas fa-leaf"></i> Es viable para cultivos pequeños en Bogotá si se optimiza</li>
+                    <li><i class="fas fa-seedling"></i> Futuras líneas de trabajo: sensores, control automático, mejores materiales</li>
                 </ul>
             </section>
         </main>
         
+        <footer class="system-footer">
+            <p>Sistema desarrollado por estudiantes de la Universidad Católica de Colombia</p>
+            <div class="footer-icons">
+                <i class="fas fa-tractor"></i>
+                <i class="fas fa-water"></i>
+                <i class="fas fa-leaf"></i>
+            </div>
+        </footer>
     </div>
 
     <script>    
@@ -64,7 +82,5 @@
             window.location.href = "lechuga.html";
         }
     </script>
-    
 </body>
-
 </html>
