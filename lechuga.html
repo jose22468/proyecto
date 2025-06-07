@@ -1,57 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Lechuga</title>
+    <title>AgroCalc - Cultivo de Lechuga</title>
     <link rel="stylesheet" href="lechuga.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="contenedor">
-        <header>
-            <h1>Calculadora de Cultivo de Lechuga Crespa</h1>
-            <button onclick="window.location.href='sistema.html'">Volver al sistema</button>
+    <div class="agricultural-container">
+        <!-- Elementos decorativos naturales -->
+        <div class="nature-elements">
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="water-drop"></div>
+        </div>
+
+        <header class="agricultural-header">
+            <div class="header-content">
+                <h1><i class="fas fa-leaf"></i> AgroCalc - Lechuga Crespa</h1>
+                <p class="subtitle">Sistema de cálculo para cultivos sostenibles</p>
+            </div>
+            <button class="btn-back" onclick="window.location.href='sistema.html'">
+                <i class="fas fa-arrow-left"></i> Volver al sistema
+            </button>
         </header>
 
-        <section class="calculadora">
-            <h2>Calculadora</h2>
-            <label for="plantas">Cantidad de plantas:</label>
-            <input type="number" id="plantas" min="1" value="1">
-            <button onclick="calcular()">Calcular necesidades</button>
+        <main class="agricultural-main">
+            <section class="calculator-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-calculator"></i> Calculadora Avanzada</h2>
+                    <div class="decoration-line"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="plantas"><i class="fas fa-seedling"></i> Cantidad de plantas:</label>
+                    <input type="number" id="plantas" min="1" value="1" class="agricultural-input">
+                </div>
 
-            <div class="resultados" id="resultados"></div>
-        </section>
+                <div class="input-group">
+                    <label for="variedad"><i class="fas fa-apple-alt"></i> Variedad de lechuga:</label>
+                    <select id="variedad" class="agricultural-select">
+                        <option value="crespa">Crespa</option>
+                        <option value="romana">Romana</option>
+                        <option value="mantecosa">Mantecosa</option>
+                        <option value="iceberg">Iceberg</option>
+                    </select>
+                </div>
 
-        <section class="articulo">
-            <h2>Resumen del Proyecto</h2>
-            <p><strong>Título:</strong> Sistema de Riego de Leonardo da Vinci</p>
-            <p><strong>Autores:</strong> Dayana Carolina Ovalle Ninco, Diego Andres Osuna Baron, Jose miguel Bermudez, felipe Chaparro</p>
-            <p><strong>Resumen:</strong> El proyecto se basa en construir y probar un sistema de riego inspirado en los diseños de Da Vinci, usando el tornillo de Arquimedes. Se aplica al cultivo de lechuga crespa, evaluando su eficiencia hídrica y sostenibilidad.</p>
-            <p><strong>Condiciones ideales:</strong><br> - Riego: cada 2-3 días<br> - Temperatura: 10-22 °C<br> - Suelo: franco arenoso, pH 6.0 - 6.8<br> - Tiempo de cosecha: 40-55 días</p>
-            <p>El sistema recupera tecnologías hidráulicas antiguas con fines sostenibles, alineado al ODS 6.</p>
-        </section>
+                <div class="input-group">
+                    <label for="etapa"><i class="fas fa-chart-line"></i> Etapa de crecimiento:</label>
+                    <select id="etapa" class="agricultural-select">
+                        <option value="inicial">Inicial (0-15 días)</option>
+                        <option value="crecimiento" selected>Crecimiento (16-30 días)</option>
+                        <option value="madurez">Madurez (31-55 días)</option>
+                    </select>
+                </div>
+
+                <button class="btn-calculate" onclick="calcular()">
+                    <i class="fas fa-calculator"></i> Calcular necesidades
+                </button>
+
+                <div class="results-card" id="resultados">
+                    <h3><i class="fas fa-clipboard-list"></i> Recomendaciones</h3>
+                    <div class="results-placeholder">
+                        <p>Ingrese los parámetros y haga clic en calcular</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-book"></i> Guía de Cultivo</h2>
+                    <div class="decoration-line"></div>
+                </div>
+                
+                <article class="project-info">
+                    <h3><i class="fas fa-tint"></i> Sistema de Riego Leonardo da Vinci</h3>
+                    <p>Este proyecto innovador recupera tecnologías hidráulicas históricas aplicadas al cultivo sostenible de lechuga, alineado con los Objetivos de Desarrollo Sostenible (ODS 6 - Agua limpia y saneamiento).</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-users"></i> Autores</h4>
+                            <ul>
+                                <li>Dayana Carolina Ovalle Ninco</li>
+                                <li>Diego Andrés Osuna Barón</li>
+                                <li>Jose Miguel Bermúdez</li>
+                                <li>Felipe Chaparro</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h4><i class="fas fa-thermometer-half"></i> Condiciones Ideales</h4>
+                            <ul>
+                                <li><strong>Temperatura:</strong> 10-22°C</li>
+                                <li><strong>Suelo:</strong> Franco arenoso</li>
+                                <li><strong>pH:</strong> 6.0 - 6.8</li>
+                                <li><strong>Cosecha:</strong> 40-55 días</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tips-section">
+                        <h4><i class="fas fa-lightbulb"></i> Consejos Clave</h4>
+                        <p>1. Mantenga la humedad constante sin encharcamientos.<br>
+                        2. Rotar cultivos cada 2 ciclos para evitar plagas.<br>
+                        3. Usar riego por goteo en horas de menor evaporación.</p>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer class="agricultural-footer">
+            <p>Sistema desarrollado con <i class="fas fa-heart"></i> por estudiantes de la Universidad Católica de Colombia</p>
+            <div class="footer-icons">
+                <i class="fas fa-tractor"></i>
+                <i class="fas fa-water"></i>
+                <i class="fas fa-leaf"></i>
+            </div>
+        </footer>
     </div>
 
     <script>
         function calcular() {
+            // Obtener valores
             const cantidad = parseInt(document.getElementById('plantas').value);
+            const variedad = document.getElementById('variedad').value;
+            const etapa = document.getElementById('etapa').value;
+            
+            // Validación
             if (isNaN(cantidad) || cantidad <= 0) {
-                alert("Ingrese una cantidad válida de plantas.");
+                mostrarError("Ingrese una cantidad válida de plantas (mínimo 1)");
                 return;
             }
-            const agua = cantidad * 0.5; // litros cada 2-3 días
-            const sol = cantidad * 6; // horas de luz solar por planta semanalmente
-
+            
+            // Cálculos basados en parámetros
+            let aguaPorPlanta, luzPorPlanta, nutrientes;
+            
+            // Factores según variedad
+            switch(variedad) {
+                case 'crespa':
+                    aguaPorPlanta = 0.5;
+                    luzPorPlanta = 6;
+                    nutrientes = "Nitrógeno moderado";
+                    break;
+                case 'romana':
+                    aguaPorPlanta = 0.6;
+                    luzPorPlanta = 7;
+                    nutrientes = "Nitrógeno alto";
+                    break;
+                case 'mantecosa':
+                    aguaPorPlanta = 0.45;
+                    luzPorPlanta = 5.5;
+                    nutrientes = "Nitrógeno bajo";
+                    break;
+                case 'iceberg':
+                    aguaPorPlanta = 0.55;
+                    luzPorPlanta = 6.5;
+                    nutrientes = "Nitrógeno moderado";
+                    break;
+            }
+            
+            // Ajuste por etapa de crecimiento
+            switch(etapa) {
+                case 'inicial':
+                    aguaPorPlanta *= 0.7;
+                    luzPorPlanta *= 0.8;
+                    break;
+                case 'madurez':
+                    aguaPorPlanta *= 1.2;
+                    luzPorPlanta *= 1.1;
+                    break;
+            }
+            
+            // Cálculos finales
+            const aguaTotal = cantidad * aguaPorPlanta;
+            const luzTotal = cantidad * luzPorPlanta;
+            const areaRequerida = cantidad * 0.09; // 0.09 m² por planta
+            
+            // Generar resultado
             const resultado = `
-                <p><strong>Agua necesaria:</strong> ${agua.toFixed(2)} litros cada 2-3 días</p>
-                <p><strong>Luz solar semanal:</strong> ${sol} horas</p>
-                <p><strong>Recomendación:</strong> Evitar encharcamiento. Mantener humedad constante en el suelo.</p>
+                <div class="result-item">
+                    <h4><i class="fas fa-tint"></i> Requerimientos Hídricos</h4>
+                    <p>${aguaTotal.toFixed(2)} litros cada 2-3 días (${aguaPorPlanta.toFixed(2)} L/planta)</p>
+                    <p class="recommendation">Recomendación: ${etapa === 'inicial' ? 'Riego superficial frecuente' : 'Riego profundo cada 2-3 días'}</p>
+                </div>
+                
+                <div class="result-item">
+                    <h4><i class="fas fa-sun"></i> Necesidades de Luz</h4>
+                    <p>${luzTotal.toFixed(1)} horas semanales (${luzPorPlanta.toFixed(1)} hrs/planta)</p>
+                    <p class="recommendation">Exposición solar directa: ${luzPorPlanta > 6.5 ? 'Proporcione sombra parcial' : 'Adecuada para luz directa'}</p>
+                </div>
+                
+                <div class="result-item">
+                    <h4><i class="fas fa-ruler-combined"></i> Espacio Requerido</h4>
+                    <p>${areaRequerida.toFixed(2)} m² (aproximadamente ${Math.ceil(areaRequerida/1.5)} camas de cultivo estándar)</p>
+                </div>
+                
+                <div class="result-item">
+                    <h4><i class="fas fa-flask"></i> Nutrientes Clave</h4>
+                    <p>${nutrientes}. ${variedad === 'romana' ? 'Aplicar compost cada 3 semanas' : 'Aplicar compost cada 4 semanas'}</p>
+                </div>
+                
+                <div class="expert-tip">
+                    <h4><i class="fas fa-lightbulb"></i> Consejo Experto</h4>
+                    <p>${generarConsejo(variedad, etapa)}</p>
+                </div>
             `;
+            
             document.getElementById('resultados').innerHTML = resultado;
+        }
+        
+        function generarConsejo(variedad, etapa) {
+            const consejos = {
+                'crespa': {
+                    'inicial': 'Mantenga el suelo constantemente húmedo durante la germinación.',
+                    'crecimiento': 'Aplique mulch para conservar humedad y controlar malezas.',
+                    'madurez': 'Reduzca riego 3 días antes de cosecha para intensificar sabores.'
+                },
+                'romana': {
+                    'inicial': 'Proteja las plántulas del viento fuerte en etapas tempranas.',
+                    'crecimiento': 'Amarre las hojas exteriores 1 semana antes de cosecha para blanquear el corazón.',
+                    'madurez': 'Coseche en horas de la mañana para mayor frescura.'
+                },
+                'mantecosa': {
+                    'inicial': 'Siembre en semilleros protegidos por su sensibilidad inicial.',
+                    'crecimiento': 'Evite mojar el centro de la roseta para prevenir hongos.',
+                    'madurez': 'Coseche cuando las hojas estén firmes pero no duras.'
+                },
+                'iceberg': {
+                    'inicial': 'Requiere suelo muy bien drenado desde la siembra.',
+                    'crecimiento': 'Aplique riego por goteo para evitar enfermedades foliares.',
+                    'madurez': 'Espere a que se forme un corazón firme antes de cosechar.'
+                }
+            };
+            
+            return consejos[variedad][etapa];
+        }
+        
+        function mostrarError(mensaje) {
+            document.getElementById('resultados').innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>${mensaje}</p>
+                </div>
+            `;
         }
     </script>
 </body>
-
 </html>
