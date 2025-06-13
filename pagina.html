@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Servo Arduino</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding-top: 50px; }
+    input[type=range] { width: 80%; }
+  </style>
+</head>
+<body>
+  <h2>Control de Servomotor con Arduino</h2>
+  <button onclick="connect()">Conectar a Arduino</button>
+  <br><br>
+  <input type="range" min="0" max="180" value="90" id="slider" oninput="sendAngle(this.value)">
+  <p>Ángulo: <span id="angleVal">90</span>°</p>
+
+  <script>
+    let port;
+    let writer;
+
+    async function connect() {
+      try {
+        port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 9600 });
+        writer = port.writable.getWriter();
+        alert("¡Conectado a Arduino!");
+      } catch (e) {
+        alert("Error de conexión: " + e);
+      }
+    }
+
+    async function sendAngle(angle) {
+      document.getElementById("angleVal").innerText = angle;
+      if (writer) {
+        const data = new TextEncoder().encode(angle + "\n");
+        await writer.write(data);
+      }
+    }
+  </script>
+</body>
+</html>
