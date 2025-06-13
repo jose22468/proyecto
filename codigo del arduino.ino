@@ -1,82 +1,60 @@
-  #include <LiquidCrystal.h>
-#include <Servo.h>  // Nueva línea
+#include <Servo.h>
+#include <LiquidCrystal.h>
 
-// Pines existentes
-int activar12 = 6;
-int entrada1 = 5;
-int entrada2 = 3;
-int Pot = A0;
-int Pulsador = 13;
-int ledRojo = 7;
-int ledVerde = 4;
-
-// Nuevo pin para el servo
-int pinServo = A1;
-
-// Variables
-float ValorPot;
-int Velocidad;
-int ValorP = 0;
-int anguloServo;
-
-LiquidCrystal lcd(8, 9, 10, 11, 12, 13);
+// Servo y variables
 Servo miServo;
+int valorSlider = 0;        // Valor del slider (de 0 a 180)
+int valorServo = 90;        // Señal al servo (90 = detenido)
+
+// Configuración del LCD: RS, E, D4, D5, D6, D7
+LiquidCrystal lcd(8, 9, 10, 11, 12, 13);
 
 void setup() {
-  pinMode(Pulsador, INPUT);
-  pinMode(entrada2, OUTPUT);
-  pinMode(entrada1, OUTPUT);
-  pinMode(activar12, OUTPUT);
-  pinMode(ledRojo, OUTPUT);
-  pinMode(ledVerde, OUTPUT);
-
-  miServo.attach(pinServo);  // Ahora usa A1
+  Serial.begin(9600);
+  miServo.attach(A1);           // Servo en pin A1
+  miServo.write(valorServo);    // Inicialmente detenido
 
   lcd.begin(16, 2);
-  Serial.begin(9600);
+  lcd.print("Servo listo");
 }
 
 void loop() {
-  ValorPot = analogRead(Pot);
-  Velocidad = map(ValorPot, 0, 1023, 0, 255);
-  analogWrite(activar12, Velocidad);
+  // Si se recibe valor del slider por serial
+  if (Serial.available() > 0) {
+    int valorRecibido = Serial.parseInt();
 
-  ValorP = digitalRead(Pulsador);
-  digitalWrite(entrada1, !ValorP);
-  digitalWrite(entrada2, ValorP);
+    // Validar rango 0-180 del slider
+    if (valorRecibido >= 0 && valorRecibido <= 180) {
+      valorSlider = valorRecibido;
 
-  if (ValorP == HIGH) {
-    // Receptor activo: mover el servo
-    int anguloServo = map(ValorPot, 0, 1023, 180, 0); // Modificación para mayor rotación
-    Serial.println(anguloServo);
-    miServo.write(anguloServo);
-  } else {
-    // Receptor apagado: poner el servo en reposo o centro
-    miServo.write(90);  // Puedes poner 0 si prefieres que "desaparezca"
+      // Mapear 0-180 (slider) a 90-180 (servo)
+      // 0 = detenido (90), 180 = máxima velocidad (180)
+      valorServo = map(valorSlider, 0, 180, 90, 180);
+
+      Serial.print("Valor slider: ");
+      Serial.print(valorSlider);
+      Serial.print(" | Valor servo: ");
+      Serial.println(valorServo);
+    }
   }
 
-  // LEDs de estado
-  if (Velocidad > 0) {
-    digitalWrite(ledVerde, HIGH);
-    digitalWrite(ledRojo, LOW);
-  } else {
-    digitalWrite(ledVerde, LOW);
-    digitalWrite(ledRojo, HIGH);
-  }
+  // Enviar valor constante al servo (para que se mantenga girando)
+  miServo.write(valorServo);
 
-  // LCD
+  // Mostrar velocidad en LCD
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Velocidad:");
-  lcd.setCursor(10, 0);
-  lcd.print(Velocidad);
 
-  lcd.setCursor(0, 1);
-  if (Velocidad > 0) {
-    lcd.print("sistema encendido");
+  lcd.setCursor(11, 0);
+  if (valorSlider == 0) {
+    lcd.print("OFF");
   } else {
-    lcd.print("sistema apagado");
+    // Mostrar como porcentaje de velocidad
+    int velocidadPct = map(valorSlider, 0, 180, 0, 100);
+    lcd.print(velocidadPct);
+    lcd.print("%");
   }
 
-  delay(500);
+  delay(200);  // Refrescar LCD cada 200 ms
 }
