@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Crear objeto de usuario
             const user = {
                 nombre: name,
                 correo: email,
